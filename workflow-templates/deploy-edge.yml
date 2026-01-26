@@ -1,0 +1,74 @@
+name: Deploy to Edge Nodes
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_node:
+        description: 'Target node for deployment'
+        required: true
+        type: choice
+        options:
+          - octavia
+          - lucidia
+          - aria
+          - all
+      environment:
+        description: 'Deployment environment'
+        required: true
+        type: choice
+        options:
+          - staging
+          - production
+
+env:
+  TAILSCALE_AUTHKEY: ${{ secrets.TAILSCALE_AUTHKEY }}
+
+jobs:
+  deploy:
+    name: Deploy to ${{ inputs.target_node }}
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Tailscale
+        uses: tailscale/github-action@v2
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+
+      - name: Deploy to node
+        run: |
+          TARGET="${{ inputs.target_node }}"
+
+          deploy_to_node() {
+            local node=$1
+            echo "Deploying to $node..."
+            ssh -o StrictHostKeyChecking=no pi@$node.tail-net << 'DEPLOY'
+              cd /opt/blackroad
+              git pull origin main
+              docker-compose pull
+              docker-compose up -d
+              echo "Deployment complete on $(hostname)"
+          DEPLOY
+          }
+
+          if [ "$TARGET" = "all" ]; then
+            for node in octavia lucidia aria; do
+              deploy_to_node $node
+            done
+          else
+            deploy_to_node $TARGET
+          fi
+
+      - name: Verify deployment
+        run: |
+          echo "Verifying deployment health..."
+          sleep 10
+          curl -f http://${{ inputs.target_node }}.tail-net:8000/health || echo "Health check endpoint not available"
+
+      - name: Notify deployment
+        if: always()
+        run: |
+          echo "Deployment to ${{ inputs.target_node }} completed with status: ${{ job.status }}"

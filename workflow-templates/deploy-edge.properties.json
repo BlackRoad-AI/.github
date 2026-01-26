@@ -1,0 +1,6 @@
+{
+  "name": "Deploy to Edge Nodes",
+  "description": "Deploy AI services to BlackRoad edge nodes (octavia, lucidia, aria) via Tailscale mesh.",
+  "iconName": "octicon-server",
+  "categories": ["Deployment", "Edge", "Infrastructure"]
+}

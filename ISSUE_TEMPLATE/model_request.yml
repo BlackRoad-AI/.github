@@ -1,0 +1,98 @@
+name: Model Integration Request
+description: Request integration with a new AI model or service
+title: "[MODEL]: "
+labels: ["model-integration", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Request a new AI model or service integration for the BlackRoad operator.
+
+        Remember: **BlackRoad routes to intelligence, it doesn't create it.**
+
+  - type: input
+    id: model-name
+    attributes:
+      label: Model/Service Name
+      description: Name of the model or service
+      placeholder: e.g., Claude 3.5 Sonnet, GPT-4o, Llama 3, Gemini
+    validations:
+      required: true
+
+  - type: dropdown
+    id: model-type
+    attributes:
+      label: Model Type
+      options:
+        - Large Language Model (LLM)
+        - Image Generation
+        - Image Understanding
+        - Speech-to-Text
+        - Text-to-Speech
+        - Embedding Model
+        - Code Generation
+        - Scientific Computing
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: deployment
+    attributes:
+      label: Deployment Type
+      description: How is this model accessed?
+      options:
+        - Cloud API (e.g., Anthropic, OpenAI)
+        - Self-hosted (local inference)
+        - Hailo-8 compatible
+        - Edge device (ESP32/LoRa)
+        - Hybrid (cloud + local)
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: What routing scenarios would use this model?
+      placeholder: |
+        When a user asks about... the operator should route to this model because...
+    validations:
+      required: true
+
+  - type: textarea
+    id: api-docs
+    attributes:
+      label: API Documentation
+      description: Link to API docs or integration guide
+      placeholder: https://docs.example.com/api
+
+  - type: textarea
+    id: routing-rules
+    attributes:
+      label: Suggested Routing Rules
+      description: How should the operator decide to use this model?
+      placeholder: |
+        - If request contains "image generation" → route here
+        - If user asks about coding → route here
+        - If latency requirement < 100ms → use local instead
+
+  - type: dropdown
+    id: cost
+    attributes:
+      label: Cost Model
+      description: How is this model priced?
+      options:
+        - Free tier available
+        - Pay per request
+        - Subscription
+        - Self-hosted (compute only)
+        - Unknown
+
+  - type: checkboxes
+    id: testing
+    attributes:
+      label: Testing
+      options:
+        - label: I have access to test this integration
+        - label: I can provide API credentials for testing

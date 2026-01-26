@@ -1,0 +1,6 @@
+{
+  "name": "Model Inference Test",
+  "description": "Workflow for validating model configurations and running inference benchmarks.",
+  "iconName": "octicon-rocket",
+  "categories": ["AI", "ML", "Inference"]
+}

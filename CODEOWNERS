@@ -1,0 +1,25 @@
+# BlackRoad-AI Code Owners
+# These owners will be automatically requested for review on PRs
+
+# Default owners for everything
+*       @BlackRoad-AI/maintainers
+
+# Architecture and high-level documentation
+BLACKROAD_ARCHITECTURE.md   @BlackRoad-AI/architects
+profile/                     @BlackRoad-AI/architects
+
+# Workflow templates - require CI/CD expertise
+workflow-templates/          @BlackRoad-AI/devops
+
+# Security-related files
+SECURITY.md                 @BlackRoad-AI/security
+CODEOWNERS                  @BlackRoad-AI/maintainers
+
+# Community health files
+CODE_OF_CONDUCT.md          @BlackRoad-AI/community
+CONTRIBUTING.md             @BlackRoad-AI/maintainers
+SUPPORT.md                  @BlackRoad-AI/community
+
+# Issue and PR templates
+ISSUE_TEMPLATE/             @BlackRoad-AI/maintainers
+PULL_REQUEST_TEMPLATE.md    @BlackRoad-AI/maintainers

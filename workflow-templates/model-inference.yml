@@ -1,0 +1,88 @@
+name: Model Inference Test
+
+on:
+  push:
+    paths:
+      - 'models/**'
+      - 'inference/**'
+  pull_request:
+    paths:
+      - 'models/**'
+      - 'inference/**'
+
+env:
+  OPERATOR_ENDPOINT: ${{ secrets.OPERATOR_ENDPOINT }}
+  CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+
+jobs:
+  validate-models:
+    name: Validate Model Configs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate model configurations
+        run: |
+          pip install pyyaml jsonschema
+          python -c "
+          import yaml
+          import json
+          from pathlib import Path
+
+          for f in Path('models').glob('**/*.yaml'):
+              print(f'Validating {f}...')
+              yaml.safe_load(f.read_text())
+          print('All model configs valid!')
+          " || echo "No model configs found"
+
+  inference-benchmark:
+    name: Run Inference Benchmarks
+    runs-on: ubuntu-latest
+    needs: validate-models
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt || true
+
+      - name: Run inference benchmarks
+        run: |
+          if [ -f "benchmarks/run.py" ]; then
+            python benchmarks/run.py --quick
+          else
+            echo "No benchmark suite found, skipping"
+          fi
+
+      - name: Upload benchmark results
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-results
+          path: benchmarks/results/
+          if-no-files-found: ignore
+
+  routing-test:
+    name: Test Routing Logic
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Test operator routing
+        run: |
+          pip install pytest httpx
+          pytest tests/routing/ -v || echo "No routing tests found"

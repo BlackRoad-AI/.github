@@ -1,0 +1,6 @@
+{
+  "name": "AI/ML CI Pipeline",
+  "description": "Standard CI workflow for BlackRoad-AI repositories with linting, testing, and security scanning.",
+  "iconName": "octicon-cpu",
+  "categories": ["Python", "AI", "ML"]
+}

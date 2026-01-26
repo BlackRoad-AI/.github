@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: BlackRoad Architecture
+    url: https://github.com/BlackRoad-AI/.github/blob/main/BLACKROAD_ARCHITECTURE.md
+    about: Review the complete BlackRoad architecture before submitting
+  - name: Security Issues
+    url: https://github.com/BlackRoad-AI/.github/security/policy
+    about: For security vulnerabilities, please review our security policy
+  - name: BlackRoad-OS
+    url: https://github.com/BlackRoad-OS
+    about: For core infrastructure issues, visit BlackRoad-OS
+  - name: BlackRoad-Cloud
+    url: https://github.com/BlackRoad-Cloud
+    about: For deployment and cloud issues, visit BlackRoad-Cloud
