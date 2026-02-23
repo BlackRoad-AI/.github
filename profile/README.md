@@ -1,44 +1,43 @@
 <div align="center">
-  <h1>🛣️ BlackRoad OS</h1>
-  <p><strong>Your AI. Your Hardware. Your Rules.</strong></p>
+  <h1>🧠 BlackRoad AI</h1>
+  <p><strong>Model inference. Memory. Identity. At scale.</strong></p>
   <p>
-    <img src="https://img.shields.io/badge/Agents-30%2C000-FF1D6C?style=for-the-badge&logo=robot&logoColor=white"/>
-    <img src="https://img.shields.io/badge/Repos-1%2C825%2B-9C27B0?style=for-the-badge"/>
-    <img src="https://img.shields.io/badge/Orgs-17-2979FF?style=for-the-badge"/>
+    <img src="https://img.shields.io/badge/Models-Qwen%20%7C%20DeepSeek%20%7C%20Llama-FF1D6C?style=for-the-badge"/>
+    <img src="https://img.shields.io/badge/Inference-vLLM%20%7C%20Ollama-9C27B0?style=for-the-badge"/>
+    <img src="https://img.shields.io/badge/Memory-PS--SHA∞-2979FF?style=for-the-badge"/>
   </p>
 </div>
 
-## Overview
+## What Lives Here
 
-BlackRoad OS is the infrastructure backbone for AI-first companies — powering 30,000+ concurrent AI agents across edge, cloud, and on-premise hardware.
+AI model deployment, inference infrastructure, and memory systems for the BlackRoad platform.
 
-| Platform | Scale | Status |
-|----------|-------|--------|
-| AI Agents | 30,000 | ✅ Active |
-| Cloudflare Workers | 75+ | ✅ Active |
-| Raspberry Pi Fleet | 4 nodes | ✅ Active |
-| GitHub Actions | 50+ workflows | ✅ Active |
+| Repo | Description |
+|------|-------------|
+| [blackroad-ai-api-gateway](https://github.com/BlackRoad-AI/blackroad-ai-api-gateway) | Unified AI API — route to any model |
+| [blackroad-ai-ollama](https://github.com/BlackRoad-AI/blackroad-ai-ollama) | Ollama runtime with `[MEMORY]` integration |
+| [blackroad-ai-cluster](https://github.com/BlackRoad-AI/blackroad-ai-cluster) | Pi-distributed inference cluster |
+| [blackroad-ai-memory-bridge](https://github.com/BlackRoad-AI/blackroad-ai-memory-bridge) | PS-SHA∞ persistent agent memory |
+| [blackroad-ai-qwen](https://github.com/BlackRoad-AI/blackroad-ai-qwen) | Qwen 2.5 model deployment |
+| [blackroad-ai-deepseek](https://github.com/BlackRoad-AI/blackroad-ai-deepseek) | DeepSeek-V3 model deployment |
+| [lucidia-platform](https://github.com/BlackRoad-AI/lucidia-platform) | Lucidia — personal AI companion |
+| [lucidia-3d-wilderness](https://github.com/BlackRoad-AI/lucidia-3d-wilderness) | 3D world where AI models live |
 
-## Core Systems
+## Stack
 
-- **Tokenless Gateway** — All AI provider secrets live only here
-- **PS-SHA∞ Memory** — Hash-chained persistent AI memory  
-- **CECE Identity** — Portable AI identity across any provider
-- **30K Agent Mesh** — WebSocket + MQTT orchestration
+**Inference**: vLLM · Ollama · llama.cpp  
+**Models**: Qwen 2.5 72B · DeepSeek-V3 · Llama 3.2 · Mistral  
+**Memory**: PS-SHA∞ hash-chain journals · Redis · Cloudflare R2  
+**Hardware**: Raspberry Pi 5 (Hailo-8, 52 TOPS) · DigitalOcean A100  
 
-## Organizations
+## Key Numbers
 
-| Org | Purpose |
-|-----|---------|
-| [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc) | Core platform & gateway |
-| [BlackRoad-OS](https://github.com/BlackRoad-OS) | OS, web, docs, agents |
-| [BlackRoad-AI](https://github.com/BlackRoad-AI) | ML models & inference |
-| [BlackRoad-Cloud](https://github.com/BlackRoad-Cloud) | Infrastructure & K8s |
-| [BlackRoad-Security](https://github.com/BlackRoad-Security) | Security & compliance |
-
-## Brand
-
-Primary: `#FF1D6C` · Gradient: `#F5A623 → #FF1D6C → #9C27B0 → #2979FF`
+| Metric | Value |
+|--------|-------|
+| Agent fleet | 30,000 |
+| Pi capacity | 22,500 + 7,500 |
+| Memory hash chain | Append-only, cryptographic |
+| Models in R2 | 135 GB (Q4_K_M) |
 
 ---
-*© BlackRoad OS, Inc. All rights reserved. Proprietary — not open source.*
+*© BlackRoad OS, Inc. All rights reserved. Proprietary.*
