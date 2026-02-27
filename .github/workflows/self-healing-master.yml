@@ -2,7 +2,10 @@ name: 🤖 Self-Healing Master
 
 on:
   workflow_run:
-    workflows: ["*"]
+    workflows:
+      - "🚀 Auto Deploy"
+      - "🔒 Security Scan"
+      - "🤖 BlackRoad Shared Agent CI"
     types: [completed]
   schedule:
     - cron: '*/10 * * * *'
