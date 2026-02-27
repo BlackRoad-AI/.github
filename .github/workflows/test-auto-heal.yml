@@ -2,7 +2,10 @@ name: 🧪 Test Auto-Heal on Failure
 
 on:
   workflow_run:
-    workflows: ["*"]
+    workflows:
+      - "🚀 Auto Deploy"
+      - "🔒 Security Scan"
+      - "🤖 BlackRoad Shared Agent CI"
     types: [completed]
   push:
     branches: [main, master, develop]

@@ -6,5 +6,46 @@
   "runners": "blackroad-fleet",
   "cost": "$0",
   "gateway": "http://octavia.local:8787",
-  "updated": "2026-02-23T22:49:06Z"
+  "scaffold": {
+    "name": "deca-layered",
+    "steps": [
+      "initial-review",
+      "distribute-to-org",
+      "distribute-to-team",
+      "update-project",
+      "distribute-to-agent",
+      "distribute-to-repo",
+      "distribute-to-device",
+      "distribute-to-drive",
+      "distribute-to-cloudflare",
+      "distribute-to-website-editor"
+    ]
+  },
+  "organizations": [
+    "Blackbox-Enterprises",
+    "BlackRoad-AI",
+    "BlackRoad-Archive",
+    "BlackRoad-Cloud",
+    "BlackRoad-Education",
+    "BlackRoad-Foundation",
+    "BlackRoad-Gov",
+    "BlackRoad-Hardware",
+    "BlackRoad-Interactive",
+    "BlackRoad-Labs",
+    "BlackRoad-Media",
+    "BlackRoad-OS",
+    "BlackRoad-Security",
+    "BlackRoad-Studio",
+    "BlackRoad-Ventures"
+  ],
+  "cli_layers": {
+    "3": "agents-system",
+    "4": "deploy-orchestration",
+    "5": "branches-environments",
+    "6": "lucidia-core-memory",
+    "7": "orchestration",
+    "8": "network-api"
+  },
+  "copilot_proxy": "http://raspberrypi.local:4000",
+  "updated": "2026-02-27T19:17:43Z"
 }
