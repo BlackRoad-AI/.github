@@ -167,7 +167,7 @@ Cross-organization repository access is managed via GitHub Apps (preferred over 
 
 ## Domain Architecture and Cloudflare Integration
 
-The project manages eighteen primary domains orchestrated via Cloudflare. Cloudflare Tunnels securely expose local Raspberry Pi nodes to the public internet.
+The project manages fourteen primary domains orchestrated via Cloudflare. Cloudflare Tunnels securely expose local Raspberry Pi nodes to the public internet.
 
 | Domain | Functional Use Case | Associated Organization |
 |--------|-------------------|------------------------|
