@@ -5,6 +5,8 @@
   "fleet": ["octavia-pi5","aria-pi4","cecilia","gematria-do","lucidia-pi5"],
   "runners": "blackroad-fleet",
   "cost": "$0",
-  "gateway": "http://octavia.local:8787",
-  "updated": "2026-02-23T22:49:06Z"
+  "gateway": "https://blackroad-api-gateway.workers.dev",
+  "gateway_local": "http://octavia.local:8787",
+  "auth": "cloudflare-access",
+  "updated": "2026-03-03T08:34:06Z"
 }

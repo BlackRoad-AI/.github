@@ -13,6 +13,10 @@ on:
         required: false
         default: 'false'
 
+concurrency:
+  group: self-healing-master
+  cancel-in-progress: true
+
 permissions:
   contents: write
   issues: write
@@ -62,13 +66,22 @@ jobs:
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         with:
           script: |
-            await github.rest.issues.create({
+            const { data: existing } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: '🚨 Self-Healing Failed',
-              body: 'Auto-healing attempt failed. Manual intervention required.',
-              labels: ['auto-fix-failed', 'urgent']
+              state: 'open',
+              labels: 'auto-fix-failed',
+              per_page: 1,
             });
+            if (existing.length === 0) {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '🚨 Self-Healing Failed',
+                body: 'Auto-healing attempt failed. Manual intervention required.',
+                labels: ['auto-fix-failed', 'urgent']
+              });
+            }
 
   health-check:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'

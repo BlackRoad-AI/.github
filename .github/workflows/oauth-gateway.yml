@@ -1,0 +1,40 @@
+name: 🔐 OAuth API Gateway
+
+# Deploys the BlackRoad Cloudflare Worker that proxies all AI vendor requests
+# through BlackRoad-owned infrastructure.  Cloudflare Access enforces OAuth
+# (GitHub / Google OIDC) at the edge so only @blackboxprogramming and
+# @lucidia-authorized sessions can reach the upstream vendors.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cloudflare/**'
+      - 'wrangler.toml'
+      - '.github/workflows/oauth-gateway.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-gateway:
+    name: Deploy API Gateway Worker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Deploy Worker
+        uses: cloudflare/wrangler-action@da0e0dfe58b7a431659754fdf3f186c529afbe65 # v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+
+      - name: Gateway health check
+        run: |
+          STATUS=$(curl -sf -o /dev/null -w "%{http_code}" "https://blackroad-api-gateway.workers.dev/health" || echo "000")
+          echo "Gateway status: ${STATUS}"
+          [ "${STATUS}" = "200" ] && echo "✅ Gateway healthy" || echo "⚠️  Gateway unreachable (may need tunnel)"
