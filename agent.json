@@ -6,5 +6,19 @@
   "runners": "blackroad-fleet",
   "cost": "$0",
   "gateway": "http://octavia.local:8787",
-  "updated": "2026-02-23T22:49:06Z"
+  "ollama_url": "http://octavia.local:11434",
+  "updated": "2026-03-03T05:00:00Z",
+  "routing": {
+    "@copilot": "ollama",
+    "@lucidia": "ollama",
+    "@blackboxprogramming": "ollama",
+    "@ollama": "ollama"
+  },
+  "providers": {
+    "ollama": {
+      "url": "http://octavia.local:11434",
+      "model": "llama3.2",
+      "no_external_providers": true
+    }
+  }
 }

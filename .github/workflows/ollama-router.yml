@@ -1,0 +1,101 @@
+name: 🦙 Ollama Router
+
+# Route @copilot, @lucidia, and @blackboxprogramming mentions directly
+# to the local Ollama instance. No external AI providers are used.
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  issues:
+    types: [opened]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  route-to-ollama:
+    name: Route to Local Ollama
+    runs-on: [self-hosted, blackroad-fleet]
+    # Trigger when any of the supported agent handles are mentioned
+    if: |
+      contains(github.event.comment.body, '@copilot') ||
+      contains(github.event.comment.body, '@lucidia') ||
+      contains(github.event.comment.body, '@blackboxprogramming') ||
+      contains(github.event.comment.body, '@ollama') ||
+      contains(github.event.issue.body, '@copilot') ||
+      contains(github.event.issue.body, '@lucidia') ||
+      contains(github.event.issue.body, '@blackboxprogramming') ||
+      contains(github.event.issue.body, '@ollama')
+
+    steps:
+      - name: 🔍 Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+
+      - name: 🔍 Load Agent Config
+        id: config
+        run: |
+          AGENT_JSON="$(cat agent.json 2>/dev/null || echo '{}')"
+          OLLAMA_URL=$(echo "$AGENT_JSON" | python3 -c \
+            "import json,sys; d=json.load(sys.stdin); print(d.get('ollama_url','http://octavia.local:11434'))")
+          MODEL=$(echo "$AGENT_JSON" | python3 -c \
+            "import json,sys; d=json.load(sys.stdin); print(d.get('providers',{}).get('ollama',{}).get('model','llama3.2'))")
+          echo "ollama_url=${OLLAMA_URL}" >> $GITHUB_OUTPUT
+          echo "model=${MODEL}" >> $GITHUB_OUTPUT
+
+      - name: 🦙 Send Prompt to Ollama
+        id: ollama
+        env:
+          OLLAMA_URL: ${{ steps.config.outputs.ollama_url }}
+          MODEL: ${{ steps.config.outputs.model }}
+          RAW_PROMPT: ${{ github.event.comment.body || github.event.issue.body }}
+        run: |
+          # Strip @-mention handles (case-insensitive) so the model only receives the actual prompt
+          CLEAN_PROMPT=$(echo "$RAW_PROMPT" \
+            | sed -E 's/@(copilot|lucidia|blackboxprogramming|ollama)//gI' \
+            | xargs)
+          export CLEAN_PROMPT
+
+          # Build JSON payload via Python using env vars to avoid shell injection
+          PAYLOAD=$(python3 -c "import json,os; print(json.dumps({'model':os.environ['MODEL'],'prompt':os.environ['CLEAN_PROMPT'],'stream':False}))")
+
+          RESPONSE=$(curl -sf --max-time 120 \
+            -X POST "${OLLAMA_URL}/api/generate" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD" \
+            | python3 -c "import json,sys; print(json.load(sys.stdin).get('response','(no response)'))" \
+          ) || RESPONSE="⚠️ Ollama is unreachable at ${OLLAMA_URL}. Ensure octavia is online."
+
+          # Write multi-line output safely
+          {
+            echo "response<<OLLAMA_EOF"
+            echo "$RESPONSE"
+            echo "OLLAMA_EOF"
+          } >> $GITHUB_OUTPUT
+
+      - name: 💬 Post Response as Comment
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        env:
+          OLLAMA_RESPONSE: ${{ steps.ollama.outputs.response }}
+          OLLAMA_URL: ${{ steps.config.outputs.ollama_url }}
+          MODEL: ${{ steps.config.outputs.model }}
+        with:
+          script: |
+            const body = [
+              `🦙 **Ollama** (\`${process.env.MODEL}\` @ \`${process.env.OLLAMA_URL}\`)`,
+              '',
+              process.env.OLLAMA_RESPONSE
+            ].join('\n');
+
+            const issueNumber = context.issue?.number ?? context.payload.pull_request?.number;
+            if (!issueNumber) { core.warning('No issue/PR number found'); return; }
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body
+            });
