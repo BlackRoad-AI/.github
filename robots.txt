@@ -1,0 +1,11 @@
+# BlackRoad OS, Inc.
+# https://blackroad.io
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://blackroad.io/sitemap.xml
+
+# Crawl-delay hint (in seconds) — optional, ignored by Google
+Crawl-delay: 1
