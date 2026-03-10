@@ -1,78 +1,44 @@
 <div align="center">
 
-# 🧠 BlackRoad AI
+# BlackRoad AI
 
-### Intelligence at Scale
+**LLM inference, model deployment, and AI agent orchestration on your own hardware.**
 
-LLM inference, model deployment, and AI agent orchestration. vLLM, Ollama, DeepSeek, Qwen — all on your hardware.
+Ollama — DeepSeek — Qwen — Hailo-8 accelerators — 52 TOPS
 
-[![Platform](https://img.shields.io/badge/Platform-blackroad.io-FF1D6C?style=for-the-badge)](https://blackroad.io)
-[![Agents](https://img.shields.io/badge/AI_Agents-30%2C000-9C27B0?style=for-the-badge)](https://agents.blackroad.io)
-[![Cost](https://img.shields.io/badge/AI_Cost-%240-F5A623?style=for-the-badge)](https://blackroad.io)
-[![Directory](https://img.shields.io/badge/Directory-blackroad.io%2F-00BFFF?style=for-the-badge)](https://blackroad.io/)
+[![Website](https://img.shields.io/badge/blackroad--ai.github.io-000?style=flat-square&logo=github)](https://blackroad-ai.github.io)
 
 </div>
 
 ---
 
-## 🎯 Focus Areas
+## Repositories
 
-`LLM Inference` • `Model Registry` • `Vector DBs` • `Embeddings` • `AI Routing` • `Agent Orchestration` • `Edge Computing` • `Hailo-8` • `Raspberry Pi Cluster`
-
----
-
-## 🏢 BlackRoad GitHub Enterprise
-
-> **[github.com/enterprises/blackroad-os](https://github.com/enterprises/blackroad-os)** — 15 organizations · 1,800+ repositories · 30,000 AI agents · $0 AI cost
-
-BlackRoad is an AI **routing** company — not an AI training company. We connect users to intelligence that already exists (Claude, GPT-4, Llama, DeepSeek, Qwen, NumPy, legal databases, etc.) through an orchestration layer we own.
-
----
-
-## 🗂️ BlackRoad Organizations
-
-| Organization | Focus | Link |
-|---|---|---|
-| **BlackRoad-OS** | Core OS · operator · infrastructure | [→](https://github.com/BlackRoad-OS) |
-| **BlackRoad-AI** | LLM inference · model routing · embeddings | [→](https://github.com/BlackRoad-AI) |
-| **BlackRoad-Cloud** | Cloud services · deployment · Cloudflare | [→](https://github.com/BlackRoad-Cloud) |
-| **BlackRoad-Labs** | Research · experiments · prototypes | [→](https://github.com/BlackRoad-Labs) |
-| **BlackRoad-Security** | Security tools · auditing · CVE scanning | [→](https://github.com/BlackRoad-Security) |
-| **BlackRoad-Foundation** | CRM · Salesforce · business tools | [→](https://github.com/BlackRoad-Foundation) |
-| **BlackRoad-Media** | Content · publishing · media assets | [→](https://github.com/BlackRoad-Media) |
-| **BlackRoad-Hardware** | IoT · ESP32 · Raspberry Pi · Hailo-8 | [→](https://github.com/BlackRoad-Hardware) |
-| **BlackRoad-Education** | Learning · documentation · tutorials | [→](https://github.com/BlackRoad-Education) |
-| **BlackRoad-Gov** | Governance · voting · policy | [→](https://github.com/BlackRoad-Gov) |
-| **BlackRoad-Interactive** | Games · 3D · metaverse · XR | [→](https://github.com/BlackRoad-Interactive) |
-| **BlackRoad-Archive** | Storage · backup · archival | [→](https://github.com/BlackRoad-Archive) |
-| **BlackRoad-Studio** | Design · creative tools · branding | [→](https://github.com/BlackRoad-Studio) |
-| **BlackRoad-Ventures** | Business · commerce · partnerships | [→](https://github.com/BlackRoad-Ventures) |
-| **Blackbox-Enterprises** | Enterprise solutions · B2B | [→](https://github.com/Blackbox-Enterprises) |
-
----
-
-## 🌐 BlackRoad Domains (19)
-
-`blackroad.io` · `blackroadai.com` · `blackroadquantum.com` · `blackroadquantum.net` · `blackroadquantum.info` · `blackroadquantum.shop` · `blackroadquantum.store` · `blackroad.company` · `blackroad.me` · `blackroad.network` · `blackroad.systems` · `blackroadinc.us` · `blackroadqi.com` · `blackboxprogramming.io` · `lucidia.earth` · `lucidia.studio` · `lucidiaqi.com` · `roadchain.io` · `roadcoin.io`
-
----
-
-## 🔗 Links
-
-| | |
+| Repository | Description |
 |---|---|
-| 🌐 **Website** | [blackroad.io](https://blackroad.io) |
-| 📋 **Directory** | [blackroad.io/](https://blackroad.io/) |
-| 📖 **Docs** | [docs.blackroad.io](https://docs.blackroad.io) |
-| 💬 **Status** | [status.blackroad.io](https://status.blackroad.io) |
-| 🤖 **Agents** | [agents.blackroad.io](https://agents.blackroad.io) |
+| [blackroad-ai-ollama](https://github.com/BlackRoad-AI/blackroad-ai-ollama) | Ollama runtime for BlackRoad AI model orchestration (MIT License) |
+| [blackroad-ai-qwen](https://github.com/BlackRoad-AI/blackroad-ai-qwen) | Qwen2.5 AI model deployment for BlackRoad infrastructure (Apache 2.0) |
+| [blackroad-ai-deepseek](https://github.com/BlackRoad-AI/blackroad-ai-deepseek) | DeepSeek-V3 AI model deployment for BlackRoad infrastructure (MIT + Custom License) |
+| [lucidia-3d-wilderness](https://github.com/BlackRoad-AI/lucidia-3d-wilderness) | 3D Minnesota wilderness environment where all BlackRoad AI models live - Immersive first-person experience |
+| [lucidia-ai-models-enhanced](https://github.com/BlackRoad-AI/lucidia-ai-models-enhanced) | 🖤 Enhanced Lucidia AI models with BlackRoad optimizations |
+| [blackroad-plans](https://github.com/BlackRoad-AI/blackroad-plans) | Centralised planning and task repository for the BlackRoad ecosystem; holds planning documents and issues. |
+| [blackroad-ai-cluster](https://github.com/BlackRoad-AI/blackroad-ai-cluster) | Clustering and orchestration system for BlackRoad AI models across Pi network |
+| [blackroad-vllm-mvp](https://github.com/BlackRoad-AI/blackroad-vllm-mvp) | High-performance AI inference with Cloudflare Workers AI |
+| [urban-goggles](https://github.com/BlackRoad-AI/urban-goggles) | 🖤 BlackRoad AI experimental project |
+| [blackroad-ai-memory-bridge](https://github.com/BlackRoad-AI/blackroad-ai-memory-bridge) | [MEMORY] system integration for BlackRoad AI models - enables collaboration and context |
+| [lucidia-ai-models](https://github.com/BlackRoad-AI/lucidia-ai-models) | 🧠 Lucidia AI Models Hub - Universal AI model memory and continuity layer above Google, OpenAI, Anthropic |
+| [BlackRoad.io](https://github.com/BlackRoad-AI/BlackRoad.io) | 🖤 Main BlackRoad.io website source |
+| [blackroad-ai-api-gateway](https://github.com/BlackRoad-AI/blackroad-ai-api-gateway) | Unified API gateway for all BlackRoad AI models with [MEMORY] integration |
+
+<details>
+<summary>Archived</summary>
+
+| Repository | Description |
+|---|---|
+| [lucidia-platform](https://github.com/BlackRoad-AI/lucidia-platform) | ARCHIVED: Consolidated into BlackRoad-OS/lucidia-core |
+
+</details>
 
 ---
 
-<div align="center">
-
-**Part of [BlackRoad OS](https://blackroad.io)** — 30,000 AI Agents • 15 Organizations • 1,800+ Repos • $0 AI Cost
-
-*BlackRoad OS, Inc. — Delaware C-Corp · © All rights reserved.*
-
-</div>
+<sub>BlackRoad OS, Inc. — [blackroad.io](https://blackroad.io)</sub>
