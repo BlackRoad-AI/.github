@@ -1,44 +1,58 @@
-<div align="center">
-
 # BlackRoad AI
 
-**LLM inference, model deployment, and AI agent orchestration on your own hardware.**
+Sovereign AI inference on edge hardware. No cloud dependency.
 
-Ollama — DeepSeek — Qwen — Hailo-8 accelerators — 52 TOPS
+## What We Build
 
-[![Website](https://img.shields.io/badge/blackroad--ai.github.io-000?style=flat-square&logo=github)](https://blackroad-ai.github.io)
+Large language models running on Raspberry Pi clusters with Hailo-8 AI accelerators. 52 TOPS of on-device compute across a 5-node fleet. Every model runs on hardware we own, on a network we control.
 
-</div>
+## Infrastructure
+
+- **52 TOPS** -- 2x Hailo-8 accelerators (26 TOPS each)
+- **16+ models** on Ollama (Qwen, DeepSeek, Llama, Mistral, custom CECE)
+- **Embedding pipeline** -- nomic-embed-text + Qdrant vector database
+- **Tokenless gateway** -- agents never touch API keys
+- **WireGuard mesh** -- encrypted inter-node inference
+
+## Model Library
+
+| Model | Parameters | Purpose |
+|-------|-----------|---------|
+| Qwen 2.5 | 7B | General purpose |
+| DeepSeek-R1 | 7B | Reasoning, code |
+| Llama 3.2 | 3B | Lightweight |
+| Mistral | 7B | Balanced |
+| CECE (custom) | 7B | Conversational AI |
+
+## Core Repositories
+
+| Repository | What it does |
+|---|---|
+| [blackroad-ai-cluster](https://github.com/BlackRoad-AI/blackroad-ai-cluster) | Model orchestration across the Pi fleet |
+| [blackroad-ai-api-gateway](https://github.com/BlackRoad-AI/blackroad-ai-api-gateway) | Unified API gateway for all models |
+| [blackroad-vllm-mvp](https://github.com/BlackRoad-AI/blackroad-vllm-mvp) | High-performance inference via Cloudflare Workers AI |
+| [blackroad-ai-memory-bridge](https://github.com/BlackRoad-AI/blackroad-ai-memory-bridge) | Persistent memory for model continuity |
+| [blackroad-ai-ollama](https://github.com/BlackRoad-AI/blackroad-ai-ollama) | Ollama runtime configuration |
+| [blackroad-ai-qwen](https://github.com/BlackRoad-AI/blackroad-ai-qwen) | Qwen 2.5 deployment |
+| [blackroad-ai-deepseek](https://github.com/BlackRoad-AI/blackroad-ai-deepseek) | DeepSeek-V3 deployment |
+
+## Architecture
+
+```
+Request --> Cloudflare Edge --> WireGuard Mesh --> Fleet Scheduler
+                                                       |
+                                 +---------------------+---------------------+
+                                 |                     |                     |
+                            [Cecilia]             [Octavia]            [Alice]
+                            Hailo-8               Hailo-8              Qdrant
+                            16 Ollama models      11 Ollama models     Embeddings
+                            Embedding             1TB NVMe             PostgreSQL
+```
+
+## Philosophy
+
+AI should run on your hardware, answer to your policies, and stay under your control. We do not send data to third-party inference providers unless explicitly configured. The default is always local.
 
 ---
 
-## Repositories
-
-| Repository | Description |
-|---|---|
-| [blackroad-ai-ollama](https://github.com/BlackRoad-AI/blackroad-ai-ollama) | Ollama runtime for BlackRoad AI model orchestration (MIT License) |
-| [blackroad-ai-qwen](https://github.com/BlackRoad-AI/blackroad-ai-qwen) | Qwen2.5 AI model deployment for BlackRoad infrastructure (Apache 2.0) |
-| [blackroad-ai-deepseek](https://github.com/BlackRoad-AI/blackroad-ai-deepseek) | DeepSeek-V3 AI model deployment for BlackRoad infrastructure (MIT + Custom License) |
-| [lucidia-3d-wilderness](https://github.com/BlackRoad-AI/lucidia-3d-wilderness) | 3D Minnesota wilderness environment where all BlackRoad AI models live - Immersive first-person experience |
-| [lucidia-ai-models-enhanced](https://github.com/BlackRoad-AI/lucidia-ai-models-enhanced) | 🖤 Enhanced Lucidia AI models with BlackRoad optimizations |
-| [blackroad-plans](https://github.com/BlackRoad-AI/blackroad-plans) | Centralised planning and task repository for the BlackRoad ecosystem; holds planning documents and issues. |
-| [blackroad-ai-cluster](https://github.com/BlackRoad-AI/blackroad-ai-cluster) | Clustering and orchestration system for BlackRoad AI models across Pi network |
-| [blackroad-vllm-mvp](https://github.com/BlackRoad-AI/blackroad-vllm-mvp) | High-performance AI inference with Cloudflare Workers AI |
-| [urban-goggles](https://github.com/BlackRoad-AI/urban-goggles) | 🖤 BlackRoad AI experimental project |
-| [blackroad-ai-memory-bridge](https://github.com/BlackRoad-AI/blackroad-ai-memory-bridge) | [MEMORY] system integration for BlackRoad AI models - enables collaboration and context |
-| [lucidia-ai-models](https://github.com/BlackRoad-AI/lucidia-ai-models) | 🧠 Lucidia AI Models Hub - Universal AI model memory and continuity layer above Google, OpenAI, Anthropic |
-| [BlackRoad.io](https://github.com/BlackRoad-AI/BlackRoad.io) | 🖤 Main BlackRoad.io website source |
-| [blackroad-ai-api-gateway](https://github.com/BlackRoad-AI/blackroad-ai-api-gateway) | Unified API gateway for all BlackRoad AI models with [MEMORY] integration |
-
-<details>
-<summary>Archived</summary>
-
-| Repository | Description |
-|---|---|
-| [lucidia-platform](https://github.com/BlackRoad-AI/lucidia-platform) | ARCHIVED: Consolidated into BlackRoad-OS/lucidia-core |
-
-</details>
-
----
-
-<sub>BlackRoad OS, Inc. — [blackroad.io](https://blackroad.io)</sub>
+Part of [BlackRoad OS](https://github.com/blackboxprogramming/BlackRoad-Operating-System). Pave Tomorrow.
