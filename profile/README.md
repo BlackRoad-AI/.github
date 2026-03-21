@@ -1,25 +1,41 @@
+<div align="center">
+
+<img src="https://images.blackroad.io/pixel-art/road-logo.png" alt="BlackRoad OS" width="80" />
+
 # BlackRoad AI
 
-**A division of [BlackRoad OS, Inc.](https://github.com/BlackRoad-OS-Inc) — Proprietary Software**
+**Local-first AI inference, model hosting, and agent orchestration.**
+
+[![BlackRoad OS](https://img.shields.io/badge/BlackRoad_OS-Pave_Tomorrow-FF2255?style=for-the-badge&labelColor=000000)](https://blackroad.io)
+
+</div>
 
 ---
 
 ## About
 
-BlackRoad AI is the artificial intelligence division of BlackRoad OS. BlackRoad AI builds and deploys sovereign AI infrastructure — local model inference, training pipelines, AI agents, and intelligence layers. 52 TOPS of compute running on our own hardware, no API keys required.
+BlackRoad AI runs the inference fleet -- Ollama clusters, Hailo-8 accelerators, model routing, memory systems, and 60 autonomous agents. Every model runs on hardware we own. No tokens sent to external providers, no rate limits, no usage tracking by third parties. Sovereign AI means your prompts stay yours.
 
-All repositories in this organization are proprietary to BlackRoad OS, Inc. Source code is publicly visible for transparency. Commercial use, forking, and redistribution are prohibited.
+## Repositories
 
-## Parent Organization
+| Repository | Description |
+|------------|-------------|
+| [blackroad-ai-cluster](https://github.com/BlackRoad-AI/blackroad-ai-cluster) | Multi-node inference cluster orchestration |
+| [blackroad-ai-ollama](https://github.com/BlackRoad-AI/blackroad-ai-ollama) | Ollama deployment, model management, and routing |
+| [blackroad-ai-memory-bridge](https://github.com/BlackRoad-AI/blackroad-ai-memory-bridge) | Persistent memory and context bridging for agents |
+| [blackroad-ai-api-gateway](https://github.com/BlackRoad-AI/blackroad-ai-api-gateway) | Unified inference gateway across all model backends |
+| [lucidia-ai-models](https://github.com/BlackRoad-AI/lucidia-ai-models) | Fine-tuned model weights and training configurations |
 
-This division operates under [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc), the corporate root of the BlackRoad ecosystem. See the parent org for the full technology stack, product catalog, and organizational structure.
+## Part of BlackRoad OS
 
-## License
+This organization is part of [BlackRoad OS, Inc.](https://blackroad.io) -- sovereign AI infrastructure built by Alexa Amundson.
 
-Proprietary — BlackRoad OS, Inc. See individual repositories for license terms.
+- 16 organizations | 275+ repositories | 20 domains
+- 7 nodes | 41.8 TOPS | 60 AI agents
+- Self-hosted everything. Your AI. Your hardware. Your rules.
 
 ---
 
-**BlackRoad OS — Pave Tomorrow.**
+**BlackRoad OS -- Pave Tomorrow.**
 
-*Copyright 2024-2026 BlackRoad OS, Inc. All Rights Reserved.*
+[blackroad.io](https://blackroad.io) | [git.blackroad.io](https://git.blackroad.io)
