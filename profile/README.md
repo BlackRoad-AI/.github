@@ -1,20 +1,19 @@
 # BlackRoad-AI
 
-**AI models, inference, Lucidia companion**
+**Local-first AI inference** — Part of the BlackRoad OS ecosystem.
 
-Part of [BlackRoad OS](https://blackroad.io) — sovereign infrastructure built from bare metal up.
+> 18 orgs · 20 domains · 200 agents · Sovereign infrastructure
+
+21 public repositories | [blackroad.io](https://blackroad.io) | [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc)
+
+## Key Repositories
+
+- [.github](https://github.com/BlackRoad-AI/.github) — AI models, inference, and Lucidia — downstream from BlackRoad-OS-Inc[0:60]
+- [blackroad-ai.github.io](https://github.com/BlackRoad-AI/blackroad-ai.github.io) — BlackRoad OS GitHub Pages[0:60]
+- [lucidiaqi.com](https://github.com/BlackRoad-AI/lucidiaqi.com) — BlackRoad OS — lucidiaqi.com[0:60]
+- [lucidia.studio](https://github.com/BlackRoad-AI/lucidia.studio) — BlackRoad OS — lucidia.studio[0:60]
+- [lucidia.earth](https://github.com/BlackRoad-AI/lucidia.earth) — BlackRoad OS — lucidia.earth[0:60]
 
 ---
 
-| | |
-|---|---|
-| **Parent** | [BlackRoad OS, Inc.](https://github.com/BlackRoad-OS-Inc) |
-| **Website** | [blackroad.io](https://blackroad.io) |
-| **Search** | [search.blackroad.io](https://search.blackroad.io) |
-| **Org Page** | [blackroad-ai.github.io](https://blackroad-ai.github.io) |
-
----
-
-> Built by [Alexa Amundson](https://blackroad.me). Delaware C-Corp. Founded November 2025.
-> 
-> 23 orgs · 2,280+ repos · 29 languages · 7 nodes · 52 TOPS
+Proprietary — BlackRoad OS, Inc. All rights reserved.
