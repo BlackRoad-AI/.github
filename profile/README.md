@@ -1,19 +1,16 @@
 # BlackRoad-AI
 
-**Local-first AI inference** — Part of the BlackRoad OS ecosystem.
+**BlackRoad AI — local-first inference, Hailo-8 accelerators, 52 TOPS. Pave Tomorrow.**
 
-> 18 orgs · 20 domains · 200 agents · Sovereign infrastructure
+> Remember the Road. Pave Tomorrow.
 
-21 public repositories | [blackroad.io](https://blackroad.io) | [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc)
+BlackRoad OS, Inc. — Delaware C-Corp, incorporated November 17, 2025.
 
-## Key Repositories
+39 public repositories | [blackroad.io](https://blackroad.io) | [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc)
 
-- [.github](https://github.com/BlackRoad-AI/.github) — AI models, inference, and Lucidia — downstream from BlackRoad-OS-Inc[0:60]
-- [blackroad-ai.github.io](https://github.com/BlackRoad-AI/blackroad-ai.github.io) — BlackRoad OS GitHub Pages[0:60]
-- [lucidiaqi.com](https://github.com/BlackRoad-AI/lucidiaqi.com) — BlackRoad OS — lucidiaqi.com[0:60]
-- [lucidia.studio](https://github.com/BlackRoad-AI/lucidia.studio) — BlackRoad OS — lucidia.studio[0:60]
-- [lucidia.earth](https://github.com/BlackRoad-AI/lucidia.earth) — BlackRoad OS — lucidia.earth[0:60]
+18 orgs · 20 domains · 200 agents · 2,156 repos · Sovereign infrastructure
 
 ---
 
-Proprietary — BlackRoad OS, Inc. All rights reserved.
+Proprietary — BlackRoad OS, Inc. All rights reserved. Incorporated 2025.
+
