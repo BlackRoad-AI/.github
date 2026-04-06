@@ -1,19 +1,9 @@
 # BlackRoad AI
 
-BlackRoad AI is the intelligence layer of the BlackRoad ecosystem.
+AI models, inference, and intelligence systems. Local-first AI on Ollama fleet with Hailo-8 acceleration.
 
-This is where BlackRoad builds local-first AI systems, model integrations, agent tooling, memory systems, and inference products.
+Part of [BlackRoad OS](https://blackroad.io) — 17 products, 27 AI agents, one highway.
 
-## What Lives Here
+---
 
-- local-first AI products
-- agent systems
-- memory and reasoning tools
-- model and inference integrations
-- evaluation, training, and AI infrastructure
-
-## Explore The Ecosystem
-
-- [BlackRoad-OS](https://github.com/BlackRoad-OS): the platform
-- [BlackRoad-Studio](https://github.com/BlackRoad-Studio): the experience
-- [BlackRoad-Forge](https://github.com/BlackRoad-Forge): the experiments
+[Products](https://github.com/BlackRoad-Products) | [Agents](https://github.com/BlackRoad-Agents) | [Index](https://github.com/BlackRoad-Index/index) | [blackroad.io](https://blackroad.io)
